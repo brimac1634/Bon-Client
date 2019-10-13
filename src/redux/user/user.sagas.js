@@ -47,14 +47,7 @@ export function* isUserAuthenticated() {
     const token = cookies.get('authToken')
     if (token) {
     	try {
-			const { data } = yield axios({
-				method: 'get',
-				url: '/check-user',
-				headers: {
-		            'Content-Type': 'application/json',
-		            'x-access-token': token
-		        }
-			})
+			const { data } = yield axios.get('/check-user')
 			yield put(signInSuccess(data));
 		} catch (err) {
 		    yield put(signInFailure('no user'))

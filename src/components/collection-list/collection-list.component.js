@@ -13,8 +13,6 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const CollectionList = ({ collection }) => {
-	console.log(collection)
-
 	return (
 		<div className='collection-list'>
 			{
