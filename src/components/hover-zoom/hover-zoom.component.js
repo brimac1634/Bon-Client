@@ -4,7 +4,8 @@ import './hover-zoom.styles.scss';
 
 class HoverZoom extends Component {
 	state = {
-		backgroundPosition: '0% 0%'
+		backgroundPosition: '0% 0%',
+		isZoom: false
 	}
 
 	handleMouseMove = e => {
@@ -16,10 +17,12 @@ class HoverZoom extends Component {
 
 	render() {
 		const { src, alt } = this.props;
+		const { isZoom } = this.state;
 		return (
 			<figure 
-				className='hover-zoom fade-in' 
-				onMouseMove={this.handleMouseMove} 
+				className={`hover-zoom fade-in ${isZoom ? 'is-zoomed' : null}`} 
+				onMouseMove={isZoom ? this.handleMouseMove : null} 
+				onClick={()=>this.setState({ isZoom: !isZoom })}
 				style={{ ...this.state, backgroundImage: `url(${src})`}}
 			>
 				<img src={src} alt={alt} />

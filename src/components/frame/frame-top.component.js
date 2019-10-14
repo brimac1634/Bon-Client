@@ -11,6 +11,7 @@ import Trigger from '../compound/compound-trigger.component';
 import Controller from '../compound/compound-controller.component';
 import DropComponent from '../dropdown/drop-component.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import MenuButton from '../menu-button/menu-button.component';
 
 import './frame.styles.scss';
 
@@ -57,7 +58,7 @@ const FrameTop = ({ currentUser, toggleMenu }) => (
 				</Controller>
 			</MediaQuery>
 			<MediaQuery maxWidth={730}>
-				<div className='option hamburger' onClick={toggleMenu} />
+				<MenuButton onClick={toggleMenu} />
 			</MediaQuery>
 		</div>
 	</div>

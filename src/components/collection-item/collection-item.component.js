@@ -4,10 +4,10 @@ import { withRouter } from 'react-router-dom';
 import './collection-item.styles.scss';
 
 const CollectionItem = ({ item, addItem, history, match }) => {
-	const { name, price, images, productID } = item;
+	const { name, price, images, productID, quantity } = item;
 	return (
 		<div 
-			className='collection-item' 
+			className='collection-item'
 			onClick={()=>history.push(`${match.url}/${productID}`)}
 		>
 			<div className='inner-container'>
@@ -23,6 +23,12 @@ const CollectionItem = ({ item, addItem, history, match }) => {
 					<span className='name'>{ name }</span>
 					<span className='price'>{`HKD$${price}`}</span>
 				</div>
+				{
+					quantity < 1 &&
+					<div className='not-avail'>
+						<span>Out of Stock</span>
+					</div>
+				}
 			</div>
 		</div>
 	)

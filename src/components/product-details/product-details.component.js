@@ -58,6 +58,7 @@ class ProductDetails extends Component {
 			product, 
 			product: { name, images, price, description, features } 
 		} = this.props;
+		const quantityAvailable = product.quantity;
 
 		const currentURL = window.location.href
 
@@ -86,18 +87,25 @@ class ProductDetails extends Component {
 					<div className='panel'>
 						<h1>{ name }</h1>
 						<span className='price'>{ `HKD$${price}` }</span>
-						<FormInput 
-							name='quantity' 
-							type='number'
-							value={quantity} 
-							label='Quantity'
-							handleChange={this.handleChange}
-						/>
-						<CustomButton 
-							onClick={()=>this.addItemToCart(product, quantity)}
-						> 
-							Add to Cart
-						</CustomButton>
+						{
+							quantityAvailable >= 1
+							? 	<div className='order'>
+									<FormInput 
+										name='quantity' 
+										type='number'
+										value={quantity} 
+										label='Quantity'
+										handleChange={this.handleChange}
+									/>
+									<CustomButton 
+										onClick={()=>this.addItemToCart(product, quantity)}
+									> 
+										Add to Cart
+									</CustomButton>
+								</div>
+							: 	<span className='order not-avail'>Out of Stock</span>
+						}
+						
 						<p className='description'>{ description }</p>
 						{
 							features &&

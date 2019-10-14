@@ -2,11 +2,17 @@
 	width: 100%;
 	height: auto;
 	background-position: center;
-	background-size: 220%;
+	background-size: 100%;
 	background-repeat: no-repeat;
 	margin: 0 0 20px 0;
 	cursor: default;
 	border: solid 1px grey;
+	cursor: zoom-in;
+
+	&.is-zoomed {
+		background-size: 220%;
+		cursor: zoom-out;
+	}
 
 	&:hover img {
 	    opacity: 0;

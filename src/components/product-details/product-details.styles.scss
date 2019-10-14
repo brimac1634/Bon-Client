@@ -32,6 +32,15 @@
 				font-size: 120%;
 			}
 
+			.order {
+				margin: 40px 0 20px 0;
+
+				&.not-avail {
+					font-weight: 600;
+					font-size: 150%;
+				}
+			}
+
 			.image-list {
 				width: 100%;
 				display: grid;
