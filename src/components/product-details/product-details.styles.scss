@@ -39,6 +39,14 @@
 					font-weight: 600;
 					font-size: 150%;
 				}
+
+				.one-left {
+					color: red;
+
+					& + button {
+					 	margin-top: 10px;
+					}
+				}
 			}
 
 			.image-list {
@@ -102,23 +110,28 @@
 						fill: gray;
 					}
 
-					.icon {
-						margin: 0 5px;
-						display: flex;
-						justify-content: center;
-						align-items: center;
+					.share-btn {
+						outline: none;
 
-						&:hover {
-							fill: black;
-						}
+						.icon {
+							margin: 0 5px;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							outline: none;
 
-						svg {
-							width: 26px;
-							height: 26px;
-							transition: all 200ms ease-in-out;
-							margin: 0;
+							&:hover {
+								fill: black;
+							}
+
+							svg {
+								width: 26px;
+								height: 26px;
+								transition: all 200ms ease-in-out;
+								margin: 0;
+							}
+							
 						}
-						
 					}
 				}
 			}

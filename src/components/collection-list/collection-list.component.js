@@ -12,9 +12,12 @@ const mapStateToProps = createStructuredSelector({
 	collection: selectCollection
 })
 
-const CollectionList = ({ collection }) => {
+const CollectionList = ({ collection, columns }) => {
 	return (
-		<div className='collection-list'>
+		<div 
+			className='collection-list'
+			style={{gridTemplateColumns: columns ? `repeat(${columns}, 1fr)` : null}}
+		>
 			{
 				collection
 				? 	collection.map(item => (

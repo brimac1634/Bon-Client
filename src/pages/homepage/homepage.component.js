@@ -47,9 +47,12 @@ class HomePage extends Component {
 				<div className='row grey'>
 					<div className='col'>
 						<Fade bottom>
-							<h2 className='text center'>
+							<h2 className='center'>
 								Men's Haberdashery specialising in handmade tailored clothing for those who live well.
 							</h2>
+							<p className='center'>
+								Bon Vivant is an idea of appreciation - that there exists an intrinsic value to things that give joy in life. These works consist of ideas and memories that bear a connection to the past. What was before considered dated has been transmuted by the mere passing of years to a status at once modern and prevalent.
+							</p>
 						</Fade>
 					</div>
 				</div>
@@ -61,8 +64,8 @@ class HomePage extends Component {
 				<div className='row grey'>
 					<div className='col'>
 						<Fade bottom>
-							<p className='text center'>
-								Bon Vivant is an idea of appreciation - that there exists an intrinsic value to things that give joy in life. These works consist of ideas and memories that bear a connection to the past. What was before considered dated has been transmuted by the mere passing of years to a status at once modern and prevalent.
+							<p className='center'>
+								Our experience in the world of menswear has given us the ability to source and produce quality accessories and garments from makers and artisans around the world at a honest and equitable price. For example, each tie we produce is handmade in Ishikawa Prefecture, Japan, using only the finest materials and craftsmanship.
 							</p>
 						</Fade>
 					</div>
@@ -72,6 +75,15 @@ class HomePage extends Component {
 						<JoinMail />
 					</div>
 				</Fade>
+				<div className='row grey'>
+					<div className='col'>
+						<Fade bottom>
+							<p className='center'>
+								Our leisurewear collection is an amalgamation of tailored smartness and laissez faire elegance. It speaks of modernity and brings together only the best details of classic garments. While the clothes feel relaxed and are never constricting, it maintains a flattering line throughout the body. In essence, it is the ultimate expression of Tailoring.
+							</p>
+						</Fade>
+					</div>
+				</div>
 				{isLoadingVideo &&
 		          <Loader />
 		        }

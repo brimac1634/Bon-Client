@@ -9,8 +9,9 @@ import {
 } from 'react-share';
 
 import { selectProduct } from '../../redux/shop/shop.selectors';
-import { addItem } from '../../redux/cart/cart.actions';
+import { addItemStart } from '../../redux/cart/cart.actions';
 import { setAlert } from '../../redux/alert/alert.actions'; 
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
@@ -23,11 +24,12 @@ import { ReactComponent as WhatsappIcon } from '../../assets/whatsapp.svg'
 import './product-details.styles.scss';
 
 const mapStateToProps = (state, ownProps) => ({
-	product: selectProduct(ownProps.match.params.productID)(state)
+	product: selectProduct(ownProps.match.params.productID)(state),
+	cartItems: selectCartItems(state)
 })
 
 const mapDispatchToProps = dispatch => ({
-	addItem: item => dispatch(addItem(item)),
+	addItem: item => dispatch(addItemStart(item)),
 	setAlert: message => dispatch(setAlert(message))
 })
 
@@ -47,8 +49,8 @@ class ProductDetails extends Component {
 	}
 
 	addItemToCart = (item, quantity) => {
-		const { addItem, setAlert } = this.props;
-		addItem({ item, quantity });
+		const { addItem, setAlert, cartItems } = this.props;
+		addItem({ item, quantity, cartItems });
 		setAlert('Added to Cart');
 	}
 
@@ -93,10 +95,16 @@ class ProductDetails extends Component {
 									<FormInput 
 										name='quantity' 
 										type='number'
+										min={1}
+										max={quantityAvailable}
 										value={quantity} 
 										label='Quantity'
 										handleChange={this.handleChange}
 									/>
+									{
+										quantityAvailable === 1 &&
+										<span className='one-left'>Only 1 left in stock!</span>
+									}
 									<CustomButton 
 										onClick={()=>this.addItemToCart(product, quantity)}
 									> 
@@ -120,6 +128,7 @@ class ProductDetails extends Component {
 							<span>Share:</span>
 							<div className='share-buttons'>
 								<FacebookShareButton 
+									className='share-btn'
 									url={currentURL} 
 									hashtag='#bonvivantcollection'
 								>
@@ -128,6 +137,7 @@ class ProductDetails extends Component {
 									</div>
 								</FacebookShareButton>
 								<TwitterShareButton 
+									className='share-btn'
 									url={currentURL}
 									hashtags={['bonvivantcollection']} 
 								>
@@ -136,6 +146,7 @@ class ProductDetails extends Component {
 									</div>
 								</TwitterShareButton>
 								<WhatsappShareButton 
+									className='share-btn'
 									url={currentURL}
 									title='Bon Vivant Collection'
 								>
@@ -144,6 +155,7 @@ class ProductDetails extends Component {
 									</div>
 								</WhatsappShareButton>
 								<EmailShareButton 
+									className='share-btn'
 									url={currentURL}
 									subject={`Bon Vivant Collection - ${name}`}
 								>

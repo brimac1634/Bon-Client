@@ -54,7 +54,7 @@ class Admin extends Component {
 									</CustomButton>
 								</div>
 								<div className='panel'>
-									<CollectionList />
+									<CollectionList columns={3} />
 								</div>
 							</div>
 						</div>
