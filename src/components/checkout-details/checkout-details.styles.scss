@@ -1,0 +1,39 @@
+.checkout-details {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 400px;
+
+	.box {
+		width: 100%;
+		border: 1px black solid;
+		padding: 15px;
+		margin-bottom: 25px;
+		overflow: hidden;
+	    transition: all 800ms ease-in-out;
+
+	    &.complete {
+			cursor: pointer;
+	    }
+
+	    &.incomplete {
+			cursor: default;
+
+			h3 {
+				color: #888;
+			}
+	    }
+
+		&.open {
+			height: 200px;
+		}
+
+		&.close {
+			height: 55px;
+		}
+
+		h3 {
+			margin: 0;
+		}
+	}
+}

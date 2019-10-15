@@ -27,6 +27,7 @@ const PrivacyPolicy = lazy(() => import('./pages/privacy-policy/privacy-policy.c
 const Philosphy = lazy(() => import('./pages/philosophy/philosophy.component'))
 const Gallery = lazy(() => import('./pages/gallery/gallery.component'))
 const SignInPage = lazy(() => import('./pages/sign-in-page/sign-in-page.component'))
+const CartPage = lazy(() => import('./pages/cart-page/cart-page.component'))
 const Checkout = lazy(() => import('./pages/checkout/checkout.component'))
 const Admin = lazy(() => import('./pages/admin/admin.component'))
 
@@ -66,6 +67,7 @@ const App = ({ checkUserSession, currentUser, setAlert, isLoading, loadingMessag
               <Route path='/philosophy' component={Philosphy}/>
               <Route path='/contact' component={Contact}/>
               <Route path='/privacy-policy' component={PrivacyPolicy}/>
+              <Route exact path='/cart' component={CartPage}/>
               <Route exact path='/checkout' component={Checkout}/>
               <Route 
                 path='/admin'
