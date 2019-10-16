@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectCartItems, selectCartTotal } from '../../redux/cart/cart.selectors';
+import { selectCartItems, selectCartTotal, selectShippingTotal, selectCartSubtotal } from '../../redux/cart/cart.selectors';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
@@ -13,12 +13,14 @@ import './cart-page.styles.scss';
 
 const mapStateToProps = createStructuredSelector({
 	cartItems: selectCartItems,
+	subtotalPrice: selectCartSubtotal,
+	shippingPrice: selectShippingTotal,
 	totalPrice: selectCartTotal
 })
 
 // <StripeCheckoutButton price={totalPrice} />
 
-const CartPage = ({ cartItems, totalPrice, history }) => (
+const CartPage = ({ cartItems, totalPrice, subtotalPrice, shippingPrice, history }) => (
 	<div className='cart-page'>
 		<div className='cart-header'>
 			<div className='header-block'>
@@ -40,13 +42,17 @@ const CartPage = ({ cartItems, totalPrice, history }) => (
 		{
 			cartItems.map(item => <CheckoutItem key={item.product_id} item={item}/>)
 		}
-		<div className='total'>
-			<span>subtotal: HKD${ totalPrice }</span>
-		</div>
-		<div className='test-warning'>
-			*Please use the following for testings*
-			<br/>
-			4242 4242 4242 4242   EXP: 01/20  CVV: 123
+		<div className='total-group'>
+			<div className='total left'>
+				<span>subtotal:</span>
+				<span>shipping:</span>
+				<span>total:</span>
+			</div>
+			<div className='total right'>
+				<span>HKD${ subtotalPrice }</span>
+				<span>HKD${ shippingPrice }</span>
+				<span>HKD${ totalPrice }</span>
+			</div>
 		</div>
 		<div className='checkout-button'>
 			<CustomButton 

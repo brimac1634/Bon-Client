@@ -22,11 +22,27 @@
       }
     }
   }
-
-  .total {
+  
+  .total-group {
     margin-top: 30px;
     margin-left: auto;
-    font-size: 36px;
+    display: flex;
+    justify-content: space-between;
+
+    .total {
+      font-size: 28px;
+      display: flex;
+      flex-direction: column;
+
+      &.left {
+        align-items: flex-start;
+        margin-right: 20px;
+      }
+
+      &.right {
+        align-items: flex-end;
+      }
+    }
   }
 
   .checkout-button {
