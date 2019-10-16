@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect';
 
@@ -20,64 +20,54 @@ const mapDispatchToProps = dispatch => ({
 	emailSignInStart: (email, password) => dispatch(emailSignInStart({ email, password}))
 })
 
-class SignIn extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: '',
-			password: ''
-		}
-	}
+const SignIn = ({ emailSignInStart, isLoadingUser, userError }) => {
+	const [userCredentials, setCredentials] = useState({email: '', password: ''});
+	const { email, password } = userCredentials;
 
-	handleSubmit = async event => {
+	const handleSubmit = async event => {
 		event.preventDefault();
-		const { emailSignInStart } = this.props;
-		const { email, password } = this.state;
 		emailSignInStart(email, password);
 	}
 
-	handleChange = event => {
+	const handleChange = event => {
 		const { value, name } = event.target;
-		this.setState({ [name]: value});
+		setCredentials({ ...userCredentials, [name]: value });
 	}
 
-	render() {
-		const { isLoadingUser, userError } = this.props;
-		return (
-			<div className='sign-in'>
-				<h2>Admin Portal</h2>
-				<form onSubmit={this.handleSubmit}>
-					<FormInput 
-						name='email' 
-						type='email' 
-						value={this.state.email} 
-						label='email'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<FormInput 
-						name='password' 
-						type='password' 
-						value={this.state.password} 
-						label='password'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<div className='buttons'>
-						<CustomButton 
-							type='submit'> 
-							Sign In 
-						</CustomButton>
-					</div>
-					<span className={`error ${userError ? 'show' : null}`}>{userError ? userError.title : ''}</span>
-				</form>
-				{
-					isLoadingUser &&
-					<Loader />
-				}
-			</div>
-		)
-	}
+	return (
+		<div className='sign-in'>
+			<h2>Admin Portal</h2>
+			<form onSubmit={handleSubmit}>
+				<FormInput 
+					name='email' 
+					type='email' 
+					value={email} 
+					label='email'
+					handleChange={handleChange}
+					required 
+				/>
+				<FormInput 
+					name='password' 
+					type='password' 
+					value={password} 
+					label='password'
+					handleChange={handleChange}
+					required 
+				/>
+				<div className='buttons'>
+					<CustomButton 
+						type='submit'> 
+						Sign In 
+					</CustomButton>
+				</div>
+				<span className={`error ${userError ? 'show' : null}`}>{userError ? userError.title : ''}</span>
+			</form>
+			{
+				isLoadingUser &&
+				<Loader />
+			}
+		</div>
+	)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

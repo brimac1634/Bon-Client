@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -16,22 +16,18 @@ const mapDisptachToProps = dispatch => ({
 	setAlert: message => dispatch(setAlert(message))
 })
 
-class ContactForm extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
+const ContactForm = ({startLoading, stopLoading, setAlert}) => {
+	const [form, setForm] = useState({
 			fullName: '',
 			email: '',
 			subject: '',
 			message: ''
-		}
-	}
+		});
+	const { fullName, email, subject, message } = form;
 
-	handleSubmit = async event => {
+	const handleSubmit = async event => {
 		event.preventDefault();
-		const { startLoading, stopLoading, setAlert } = this.props;
 		startLoading();
-		const form = this.state;
 		axios({
 			url: 'contact-us',
 			method: 'post',
@@ -39,7 +35,7 @@ class ContactForm extends Component {
 		}).then(res => {
 			stopLoading();
 			setAlert('Your message has been sent')
-			this.setState({ 
+			setForm({ 
 				fullName: '',
 				email: '',
 				subject: '',
@@ -51,56 +47,53 @@ class ContactForm extends Component {
 		});
 	}
 
-	handleChange = event => {
+	const handleChange = event => {
 		const { value, name } = event.target;
-		this.setState({ [name]: value});
+		setForm({ ...form, [name]: value});
 	}
 
-	render() {
-		const { fullName, email, subject, message } = this.state;
-		return (
-			<div className='contact-form'>
-				<form onSubmit={this.handleSubmit}>
-					<FormInput 
-						name='fullName' 
-						type='text' 
-						value={fullName} 
-						label='Full Name'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<FormInput 
-						name='email' 
-						type='email' 
-						value={email} 
-						label='Email'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<FormInput 
-						name='subject' 
-						type='text' 
-						value={subject} 
-						label='Subject'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<FormInput 
-						area
-						name='message' 
-						type='text' 
-						value={message} 
-						label='Message'
-						handleChange={this.handleChange}
-						required 
-					/>
-					<div className='buttons'>
-						<CustomButton type='submit'> Submit </CustomButton>
-					</div>
-				</form>
-			</div>
-		)
-	}
+	return (
+		<div className='contact-form'>
+			<form onSubmit={handleSubmit}>
+				<FormInput 
+					name='fullName' 
+					type='text' 
+					value={fullName} 
+					label='Full Name'
+					handleChange={handleChange}
+					required 
+				/>
+				<FormInput 
+					name='email' 
+					type='email' 
+					value={email} 
+					label='Email'
+					handleChange={handleChange}
+					required 
+				/>
+				<FormInput 
+					name='subject' 
+					type='text' 
+					value={subject} 
+					label='Subject'
+					handleChange={handleChange}
+					required 
+				/>
+				<FormInput 
+					area
+					name='message' 
+					type='text' 
+					value={message} 
+					label='Message'
+					handleChange={handleChange}
+					required 
+				/>
+				<div className='buttons'>
+					<CustomButton type='submit'> Submit </CustomButton>
+				</div>
+			</form>
+		</div>
+	)
 }
 
 export default connect(null, mapDisptachToProps)(ContactForm);
