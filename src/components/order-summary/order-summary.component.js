@@ -32,12 +32,12 @@ const OrderSummary = ({cartItems, subtotalPrice, shippingPrice, totalPrice, smal
 			<div className='total left'>
 				<span>subtotal:</span>
 				<span>shipping:</span>
-				<span>total:</span>
+				<span className='bold'>total:</span>
 			</div>
 			<div className='total right'>
 				<span>HKD${ subtotalPrice }</span>
 				<span>HKD${ shippingPrice }</span>
-				<span>HKD${ totalPrice }</span>
+				<span className='bold'>HKD${ totalPrice }</span>
 			</div>
 		</div>
 	</div>

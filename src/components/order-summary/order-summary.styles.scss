@@ -25,6 +25,10 @@
 	      display: flex;
 	      flex-direction: column;
 
+	      .bold {
+	      	font-weight: 800;
+	      }
+
 	      &.left {
 	        align-items: flex-start;
 	        margin-right: 20px;
