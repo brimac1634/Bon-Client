@@ -29,7 +29,7 @@ const CheckoutItem = ({ item, clearItem, removeItem, addItem }) => {
 				className='remove-button' 
 				onClick={()=>clearItem(item)}
 			>
-				&#10005;
+				<span>remove</span>
 			</div>
 		</div>
 	)
