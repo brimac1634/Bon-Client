@@ -50,8 +50,8 @@ const App = ({ checkUserSession, currentUser, setAlert, isLoading, loadingMessag
 
   useEffect(() => {
       if (currentUser) {
-          const { userName } = currentUser;
-          setAlert(`Welcome, ${userName}`)
+          const {    userName } = currentUser;
+                setAlert(`Welcome, ${userName}`)
       }
   }, [currentUser, setAlert])
     
