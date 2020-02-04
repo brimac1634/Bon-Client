@@ -4,10 +4,7 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import MediaQuery from "react-responsive";
 
-import FrameTop from "./components/frame/frame-top.component";
-import FrameLeft from "./components/frame/frame-left.component";
-import FrameRight from "./components/frame/frame-right.component";
-import FrameBottom from "./components/frame/frame-bottom.component";
+import Header from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boundary.component";
 import Alert from "./components/alert/alert.component";
 import SlideMenu from "./components/slide-menu/slide-menu.component";
@@ -98,12 +95,7 @@ const App = ({
         </ErrorBoundary>
         {isLoading && <Loader message={loadingMessage} />}
       </div>
-      <FrameTop />
-      <MediaQuery minWidth={1000}>
-        <FrameLeft />
-        <FrameRight />
-        <FrameBottom />
-      </MediaQuery>
+      <Header />
       <MediaQuery maxWidth={729}>
         <SlideMenu />
       </MediaQuery>
