@@ -57,18 +57,19 @@ const Header = ({ currentUser, location }) => {
               ADMIN
             </Link>
           )}
+          <span className="apt-only">by appointment only</span>
         </div>
         <Controller>
           <Trigger>
             <div>
-              <CartIcon />
+              <CartIcon enlarge={showMenu} />
             </div>
           </Trigger>
           <DropComponent>
             <CartDropdown />
           </DropComponent>
         </Controller>
-        <div className="header-button" onClick={() => setShowMenu(!showMenu)}>
+        <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
           <MenuButton showMenu={showMenu} />
         </div>
       </div>
