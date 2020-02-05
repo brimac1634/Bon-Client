@@ -2,12 +2,10 @@ import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import MediaQuery from "react-responsive";
 
 import Header from "./components/header/header.component";
 import ErrorBoundary from "./components/error-boundary/error-boundary.component";
 import Alert from "./components/alert/alert.component";
-import SlideMenu from "./components/slide-menu/slide-menu.component";
 import Loader from "./components/loader/loader.component";
 import HomePage from "./pages/homepage/homepage.component";
 
@@ -96,9 +94,6 @@ const App = ({
         {isLoading && <Loader message={loadingMessage} />}
       </div>
       <Header />
-      <MediaQuery maxWidth={729}>
-        <SlideMenu />
-      </MediaQuery>
       <Alert />
     </div>
   );

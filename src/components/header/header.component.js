@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
-import MediaQuery from "react-responsive";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 
