@@ -7,6 +7,7 @@ import "./homepage.styles.scss";
 
 const HomePage = () => (
   <div className="homepage">
+    <div className="hero" />
     <div className="row grey">
       <div className="col">
         <h2 className="center">

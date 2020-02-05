@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 import MediaQuery from "react-responsive";
 
 import { selectCurrentUser } from "../../redux/user/user.selectors";
-import { toggleMenu } from "../../redux/menu/menu.actions";
 
 import CartIcon from "../cart-icon/cart-icon.component";
 import Trigger from "../compound/compound-trigger.component";
@@ -16,15 +16,12 @@ import MenuButton from "../menu-button/menu-button.component";
 import BonVLoad from "../../assets/BonVLoad.png";
 import "./header.styles.scss";
 
-const mapStateToProps = state => ({
-  currentUser: selectCurrentUser(state)
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 
-const mapDispatchToProps = dispatch => ({
-  toggleMenu: () => dispatch(toggleMenu())
-});
-
-const Header = ({ currentUser, toggleMenu, location }) => {
+const Header = ({ currentUser, location }) => {
+  const [showMenu, setShowMenu] = useState(false);
   const title = location.pathname.slice(1);
   return (
     <div className="header">
@@ -41,8 +38,8 @@ const Header = ({ currentUser, toggleMenu, location }) => {
           </h2>
         )}
       </div>
-      <div className="options">
-        <MediaQuery minWidth={730}>
+      <div className="option-container">
+        <div className={`options ${showMenu ? "show" : null}`}>
           <Link className="option" to={"/shop"}>
             SHOP
           </Link>
@@ -60,22 +57,22 @@ const Header = ({ currentUser, toggleMenu, location }) => {
               ADMIN
             </Link>
           )}
-          <Controller>
-            <Trigger>
-              <div>
-                <CartIcon />
-              </div>
-            </Trigger>
-            <DropComponent>
-              <CartDropdown />
-            </DropComponent>
-          </Controller>
-        </MediaQuery>
-        <MediaQuery maxWidth={730}>
-          <MenuButton onClick={toggleMenu} />
-        </MediaQuery>
+        </div>
+        <Controller>
+          <Trigger>
+            <div>
+              <CartIcon />
+            </div>
+          </Trigger>
+          <DropComponent>
+            <CartDropdown />
+          </DropComponent>
+        </Controller>
+        <div className="header-button" onClick={() => setShowMenu(!showMenu)}>
+          <MenuButton showMenu={showMenu} />
+        </div>
       </div>
     </div>
   );
 };
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+export default withRouter(connect(mapStateToProps)(Header));
