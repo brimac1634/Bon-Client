@@ -10,6 +10,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-map-gl": "^5.0.10",
+    "react-player": "^1.15.2",
     "react-redux": "^7.1.0",
     "react-responsive": "^8.0.1",
     "react-router-dom": "^5.0.1",

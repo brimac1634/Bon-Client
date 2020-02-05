@@ -12,7 +12,7 @@ import DropComponent from "../dropdown/drop-component.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 import MenuButton from "../menu-button/menu-button.component";
 
-import BonVLoad from "../../assets/BonVLoad.png";
+import logo from "../../assets/logo_white.png";
 import "./header.styles.scss";
 
 const mapStateToProps = createStructuredSelector({
@@ -26,7 +26,7 @@ const Header = ({ currentUser, location }) => {
     <div className="header">
       <div className="logo-container">
         <Link to={"/"}>
-          <img className="logo" src={BonVLoad} alt="logo" />
+          <img className="logo" src={logo} alt="logo" />
         </Link>
         {title ? (
           <h1>{title}</h1>
