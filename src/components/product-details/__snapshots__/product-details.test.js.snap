@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductDetails /> expect to render ProductDetails component 1`] = `
+"<div className=\\"product-details\\">
+  <div className=\\"panels\\">
+    <div className=\\"panel\\">
+      <HoverZoom src=\\"test_image\\" alt=\\"product image\\" />
+      <div className=\\"image-list\\">
+        <div className=\\"list-image\\" style={{...}} onClick={[Function: onClick]} />
+      </div>
+    </div>
+    <div className=\\"panel\\">
+      <h1>
+        test product
+      </h1>
+      <span className=\\"price\\">
+        HKD$60
+      </span>
+      <div className=\\"order\\">
+        <FormInput id=\\"quantity\\" name=\\"quantity\\" type=\\"number\\" min={1} max={2} value={1} label=\\"Quantity\\" handleChange={[Function: handleChange]} />
+        <CustomButton onClick={[Function: onClick]}>
+          Add to Cart
+        </CustomButton>
+      </div>
+      <p className=\\"description\\">
+        a test product
+      </p>
+      <div className=\\"feature\\">
+        <span>
+          •
+        </span>
+        <span>
+          something nice
+        </span>
+      </div>
+      <div className=\\"share\\">
+        <span>
+          Share:
+        </span>
+        <div className=\\"share-buttons\\">
+          <ForwardRef className=\\"share-btn\\" url=\\"http://localhost/\\" hashtag=\\"#bonvivantcollection\\" windowWidth={550} windowHeight={400}>
+            <div className=\\"icon\\">
+              <ForwardRef(SvgFacebook) />
+            </div>
+          </ForwardRef>
+          <ForwardRef className=\\"share-btn\\" url=\\"http://localhost/\\" hashtags={{...}} windowWidth={550} windowHeight={400}>
+            <div className=\\"icon\\">
+              <ForwardRef(SvgTwitter) />
+            </div>
+          </ForwardRef>
+          <ForwardRef className=\\"share-btn\\" url=\\"http://localhost/\\" title=\\"Bon Vivant Collection\\" separator=\\" \\" windowWidth={550} windowHeight={400}>
+            <div className=\\"icon\\">
+              <ForwardRef(SvgWhatsapp) />
+            </div>
+          </ForwardRef>
+          <ForwardRef className=\\"share-btn\\" url=\\"http://localhost/\\" subject=\\"Bon Vivant Collection - test product\\" separator=\\" \\" openWindow={false} onClick={[Function: onClick]}>
+            <div className=\\"icon\\">
+              <ForwardRef(SvgEmail) />
+            </div>
+          </ForwardRef>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

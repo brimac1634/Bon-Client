@@ -11,9 +11,13 @@ const Enter = ({ children, enterStyle, ...otherProps }) => {
 
   useEffect(() => {
     if (!enter) return;
-    const { top } = enter.current.getBoundingClientRect();
-    setShow(top < window.innerHeight);
-  }, [scrollY]);
+    const { top, height } = enter.current.getBoundingClientRect();
+    if (show) {
+      setShow(top < window.innerHeight);
+    } else {
+      setShow(top + height * 0.4 < window.innerHeight);
+    }
+  }, [scrollY, show]);
 
   return (
     <div
