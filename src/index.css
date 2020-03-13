@@ -15,15 +15,15 @@ code {
 /*--------Scroll Bar------------*/
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 1px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent; 
+  background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #d1d1d1; 
+  background: #d1d1d1;
 }

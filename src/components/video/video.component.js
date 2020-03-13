@@ -1,19 +1,17 @@
 import React from "react";
-import ReactPlayer from "react-player";
 
 import "./video.styles.scss";
 
-const Video = ({ url, setLoading }) => (
+const Video = ({ url }) => (
   <div className="video">
-    <ReactPlayer
-      url={url}
-      playing
+    <video
+      preload="auto"
+      autoPlay
       loop
-      playsinline
-      width="100%"
-      height="100%"
-      onReady={() => setLoading(false)}
-    />
+      poster="https://lh3.googleusercontent.com/proxy/ELAPJK60Cy0iUYzKNPVP0HQcr0iCzc-HTZRvYmhOohOglLTyfk5e5AkFLz7pRgxcOQaObCb4QTnTbrAj3QaAvNhaY8pnVsqwbeoSi_N-sSXCTSkXsaHeaeBsmRw9J6E"
+    >
+      <source src={url} type="video/mp4" />
+    </video>
   </div>
 );
 export default Video;

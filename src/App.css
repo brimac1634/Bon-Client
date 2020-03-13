@@ -3,8 +3,11 @@
 }
 
 body {
-  font-family: "Open Sans Condensed";
+  font-family: "Crimson Text", serif;
   font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 1.3px;
   color: black;
   background-color: white;
   overflow-x: hidden;

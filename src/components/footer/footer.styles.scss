@@ -1,40 +1,42 @@
 .footer {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  height: 200px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: #cccccc;
 
-	.icon-set {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+  .icon-set {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-		&.horizontal {
-			width: 120px;
-			height: auto;
-			flex-direction: row;
-		}
+    &.horizontal {
+      width: 120px;
+      height: auto;
+      flex-direction: row;
+    }
 
-		&.vertical {
-			width: auto;
-			height: 120px;
-			flex-direction: column;
-		}
+    &.vertical {
+      width: auto;
+      height: 120px;
+      flex-direction: column;
+    }
 
-		&:hover .icon {
-			fill: gray;
-		}
+    &:hover .icon {
+      fill: gray;
+    }
 
-		.icon {
-			width: 24px;
-			height: 24px;
-			transition: all 200ms ease-in-out;
-			cursor: pointer;
+    .icon {
+      width: 24px;
+      height: 24px;
+      transition: all 200ms ease-in-out;
+      cursor: pointer;
 
-			&:hover {
-				fill: black;
-			}
-		}
-	}
+      &:hover {
+        fill: black;
+      }
+    }
+  }
 }
