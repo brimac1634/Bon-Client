@@ -17,7 +17,7 @@ import {
 import { setAlert } from "./redux/alert/alert.actions";
 import { checkUserSession } from "./redux/user/user.actions";
 
-import "./App.css";
+import "./App.scss";
 
 const ShopPage = lazy(() => import("./pages/shop/shop.component"));
 const Contact = lazy(() => import("./pages/contact/contact.component"));

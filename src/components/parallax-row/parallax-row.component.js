@@ -1,47 +1,27 @@
-import React, { Component } from 'react';
-import './parallax-row.styles.scss';
+import React from "react";
 
-class ParallaxRow extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			offset: 0
-		}
-	}
+import { useScrollY } from "../../utils";
 
-	componentDidMount() {
-	  	window.addEventListener('scroll', this.parallaxShift);
-	}
-	componentWillUnmount() {
-	 	 window.removeEventListener('scroll', this.parallaxShift);
-	}
-	parallaxShift = () => {
-	  	this.setState({
-	    	offset: window.pageYOffset
-	  	});
-	};
+import "./parallax-row.styles.scss";
 
-	render() {
-		const { children, background, height } = this.props;
-		const { offset } = this.state;
-		return (
-			<div 
-				className='parallax-background' 
-				style={{ 
-					backgroundImage: background,
-					backgroundPositionY: offset / 5,
-					height: height || null
-				}}
-			>
-				<div
-			      className='info-container'
-			      style={{ bottom: offset }}
-			    >
-				    {children}
-			    </div>
-			</div>
-		)
-	}
-}
+const ParallaxRow = ({ top, children, background, height, brightness }) => {
+  const scrollY = useScrollY();
+
+  return (
+    <div
+      className="parallax-background"
+      style={{
+        backgroundImage: background,
+        height: height || "100vh",
+        top: Number(top + scrollY * 0.4),
+        filter: `brightness(${brightness})`
+      }}
+    >
+      <div className="info-container" style={{ bottom: scrollY }}>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export default ParallaxRow;

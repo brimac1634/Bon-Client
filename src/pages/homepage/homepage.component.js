@@ -26,7 +26,7 @@ const HomePage = () => (
       </p>
     </div>
     <div className="row">
-      <span className="row-header dark">
+      <span className="row-header left dark">
         Bon Vivant is an idea of appreciation,
       </span>
       <p className="right dark">

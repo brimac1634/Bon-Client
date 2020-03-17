@@ -47,6 +47,64 @@ a {
   color: black;
 }
 
+.row {
+  padding: 20px 8vw;
+  width: 100%;
+  display: flex;
+
+  &.grey {
+    background: #ebebeb;
+  }
+
+  .row-header {
+    display: block;
+    color: white;
+    font-size: 4vw;
+    letter-spacing: 4px;
+    line-height: 7vw;
+    text-align: right;
+    margin: 2vw 0;
+
+    &.hero-header {
+      font-size: 5vw;
+    }
+  }
+
+  .col {
+    width: 50%;
+
+    &:first-child {
+      margin-right: 4vw;
+    }
+
+    &:last-child {
+      margin-left: 4vw;
+    }
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .right {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  p {
+    color: white;
+    max-width: 70vw;
+  }
+
+  .dark {
+    color: black;
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
