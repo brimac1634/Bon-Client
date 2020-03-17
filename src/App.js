@@ -8,6 +8,7 @@ import ErrorBoundary from "./components/error-boundary/error-boundary.component"
 import Alert from "./components/alert/alert.component";
 import Loader from "./components/loader/loader.component";
 import HomePage from "./pages/homepage/homepage.component";
+import Footer from "./components/footer/footer.component";
 
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import {
@@ -94,6 +95,7 @@ const App = ({
         {isLoading && <Loader message={loadingMessage} />}
       </div>
       <Header />
+      <Footer horizontal />
       <Alert />
     </div>
   );

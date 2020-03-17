@@ -53,6 +53,8 @@ const Philosphy = () => {
           Art is not to make us laugh or cry, or to rouse our lust or our anger,
           but to do as nature does — that is, fill us with wonderment.”
         </p>
+      </div>
+      <div className="row">
         <span className="row-header hero-header right">
           —— Gustave Flaubert
         </span>
@@ -93,7 +95,7 @@ const Philosphy = () => {
       <ParallaxRow background={`url(${philoHero})`} top="0" brightness="30%" />
       <ParallaxRow
         background={`url(${philoHero})`}
-        top="2000"
+        top="1000"
         brightness="30%"
       />
     </div>

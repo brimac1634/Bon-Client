@@ -13,13 +13,11 @@ const ParallaxRow = ({ top, children, background, height, brightness }) => {
       style={{
         backgroundImage: background,
         height: height || "100vh",
-        top: Number(top + scrollY * 0.4),
+        top: Number(top + scrollY * 0.3),
         filter: `brightness(${brightness})`
       }}
     >
-      <div className="info-container" style={{ bottom: scrollY }}>
-        {children}
-      </div>
+      {children}
     </div>
   );
 };

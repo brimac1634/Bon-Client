@@ -1,22 +1,20 @@
 import React from "react";
-import { Parallax } from "react-scroll-parallax";
 
 import Video from "../../components/video/video.component";
-import Footer from "../../components/footer/footer.component";
+import ParallaxRow from "../../components/parallax-row/parallax-row.component";
 
 import "./homepage.styles.scss";
 
 const HomePage = () => (
   <div className="homepage">
-    <div className="hero">
-      <Video url="https://bon-vivant-videos.s3-ap-southeast-1.amazonaws.com/bon-vivant.mp4" />
-    </div>
     <div className="row">
-      <span className="row-header hero-header">
+      <span className="row-header hero-header right">
         Handmade tailord clothing,
         <br />
         for those who live well.
       </span>
+    </div>
+    <div className="row">
       <p className="left">
         Our experience in the world of menswear has given us the ability to
         source and produce quality accessories and garments from makers and
@@ -25,10 +23,12 @@ const HomePage = () => (
         only the finest materials and craftsmanship.
       </p>
     </div>
-    <div className="row">
+    <div className="row grey">
       <span className="row-header left dark">
         Bon Vivant is an idea of appreciation,
       </span>
+    </div>
+    <div className="row grey">
       <p className="right dark">
         that there exists an intrinsic value to things that give joy in life.
         These works consist of ideas and memories that bear a connection to the
@@ -36,8 +36,9 @@ const HomePage = () => (
         passing of years to a status at once modern and prevalent.
       </p>
     </div>
-    <div className="hero grey" />
-    <Footer horizontal />
+    <ParallaxRow top="0">
+      <Video url="https://bon-vivant-videos.s3-ap-southeast-1.amazonaws.com/bon-vivant.mp4" />
+    </ParallaxRow>
   </div>
 );
 

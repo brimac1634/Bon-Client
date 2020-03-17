@@ -5,7 +5,6 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import * as serviceWorker from "./serviceWorker";
 import ScrollToTop from "./components/scroll-to-top/scroll-to-top.component";
-import { ParallaxProvider } from "react-scroll-parallax";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
@@ -28,10 +27,8 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <PersistGate persistor={persistor}>
-        <ParallaxProvider>
-          <ScrollToTop />
-          <App />
-        </ParallaxProvider>
+        <ScrollToTop />
+        <App />
       </PersistGate>
     </BrowserRouter>
   </Provider>,
